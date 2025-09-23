@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# requirements for larger job
+#SBATCH --job-name=test_NI
+#SBATCH -A clcr
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=25
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=100gb
+#SBATCH --time=100:00:00
+#SBATCH --mail-user=am1355@le.ac.uk
+#SBATCH --mail-type=ALL
+
+module purge
+module load R/4.3.1
+
+#working from my directory
+
+R -s -f /data/clcr/am1355/agroforestry_processing/NI_process_parallel_final.R
